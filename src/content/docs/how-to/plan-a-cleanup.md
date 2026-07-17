@@ -15,8 +15,9 @@ Protected files appear in cleanup scans as locked entries you cannot
 select, and any plan that includes one requires a per-item acknowledgement
 before it can be approved — see
 [Protected files](../../manual/cleanup-archive/#protected-files) for where
-the protection level comes from. Cleanup never deletes permanently: the
-destinations are the Archive folder or the OS trash, both recoverable.
+the protection level comes from. Cleanup's only destinations are the
+Archive folder and the OS trash, both recoverable (see
+[Destination](../../manual/cleanup-archive/#destination-archive-folder-or-system-trash)).
 
 ## Cleaning a project's outputs
 

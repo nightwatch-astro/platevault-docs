@@ -20,10 +20,8 @@ Inbox pipeline. A file classifies as a master when:
   master naming convention ("master", "_stacked").
 
 A present stack count is decisive and overrides naming: a file named
-`dark_master_stacked.fit` whose count is 1 is not a master. A folder of
-masters never collapses into one aggregate item, and a raw single frame
-with an ordinary name never appears as a master. Confirming and applying
-registers each master into the calibration store as its own item.
+`dark_master_stacked.fit` whose count is 1 is not a master. Confirming and
+applying registers each master into the calibration store as its own item.
 
 ## The Calibration page
 
@@ -32,14 +30,14 @@ registers each master into the calibration store as its own item.
 One row per master file. Fingerprint columns (gain, temperature, binning,
 filter) are kind-conditional: a column that does not apply to a kind — a
 bias has no meaningful exposure — renders an explicit not-applicable
-marker. Missing values render as unresolved, never a fabricated `Gain 0`
-or `0 KB`; a real zero renders as `0` with its source pill.
+marker. Missing values render as unresolved and a real zero as `0` with
+its source pill — the [Inbox value-rendering rule](../inbox/#per-file-detail).
 
 Sort headers, search, and group-by work as on other list pages, and a kind
 filter appears once a second kind exists.
 
-Master *light* frames never appear here, and only dark/flat/bias kinds
-surface — `dark_flat` and `bad_pixel_map` are out of scope by design.
+Only dark/flat/bias kinds surface here; master *light* frames,
+`dark_flat`, and `bad_pixel_map` are out of scope by design.
 
 ## Master detail
 
@@ -55,12 +53,12 @@ Select an unassigned master from a project or from the Calibration page's
 matching view. Ranked candidate sessions appear **before** any assignment,
 each with its context (target, filter, night, frame count), a confidence
 value, and mismatch indicators. A session that fails a hard rule (wrong
-gain, for instance) is shown with its mismatch flagged, never silently
-hidden; absent context renders as unresolved.
+gain, for instance) is shown with its mismatch flagged; absent context
+renders as unresolved.
 
 ![Ranked candidate sessions for a master: context, confidence values, and a flagged hard-rule mismatch](../../../assets/screenshots/calibration-matching.svg)
 
-Assignment is always explicit — matching never auto-applies one.
+Assignment is always explicit.
 Confirming records it, updates the Used-by list, and answers back; the
 assignment is also visible from the session and project side. Cancelling
 fires no backend call.

@@ -16,8 +16,6 @@ after installation are handled in-app by the signature-verified
 | Linux x64 | `PlateVault_{version}_amd64.AppImage`, `PlateVault_{version}_amd64.deb`, or `PlateVault-{version}-1.x86_64.rpm` |
 | macOS Apple Silicon | `PlateVault_{version}_aarch64.dmg` |
 
-macOS Intel is not supported.
-
 ## Windows
 
 1. Download the NSIS installer (`…_x64-setup.exe`) or the MSI.

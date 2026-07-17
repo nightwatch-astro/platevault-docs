@@ -37,7 +37,7 @@ performs no file movement — it only reads.
 Click **Apply remap**. PlateVault persists the new path in its own record
 and writes a durable audit row recording the old→new path. Sessions, projects,
 and calibration relationships under the root are intact — they were always
-stored relative to the root, never as absolute paths.
+stored relative to the root.
 
 At no point in this flow does any file on disk move, whatever the outcome.
 

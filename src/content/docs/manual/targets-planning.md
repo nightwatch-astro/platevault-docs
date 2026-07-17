@@ -12,8 +12,8 @@ observing site.
 
 ## The target list
 
-The list shows the targets you have added — not the full bundled catalog,
-which is reachable only through the Add-target search. Search matches
+The list shows only the targets you have added; the full bundled catalog
+is reachable through the Add-target search. Search matches
 designations and aliases alike ("M31" and "Andromeda" find the same row).
 Columns sort with a single active sort indicator (announced via
 `aria-sort`), and the list can be grouped, for example by catalogue.
@@ -37,9 +37,9 @@ app restart.
    With zero suggestions on screen, Enter triggers it; with suggestions
    present, Enter selects the highlighted one.
 
-Confirming a match persists exactly one canonical row — re-adding the same
-target never creates a duplicate, and an unresolvable name never fabricates
-one. Resolved lookups are cached, so the same name resolves instantly next
+Confirming a match persists exactly one canonical row: re-adding the same
+target reuses the existing row, and an unresolvable name adds nothing.
+Resolved lookups are cached, so the same name resolves instantly next
 time.
 
 ![The Add-target search: local suggestions listed, with the SIMBAD lookup and Search-more-catalogues fallbacks visible](../../../assets/screenshots/targets-add-search.svg)
@@ -70,8 +70,8 @@ outside click.
 
 ![The Why-this-guidance panel naming the per-filter altitude and Moon-separation thresholds behind the recommendation](../../../assets/screenshots/targets-why-guidance.svg)
 
-Without a configured site, these columns state that they need one — they
-never render a plausible-looking number that was not actually computed.
+Without a configured site, these columns state that they need one; a
+planner number appears only once it has actually been computed.
 
 ## Starting a project from a target
 
@@ -83,4 +83,4 @@ project without retyping the target's name.
 The link is persistent and bidirectional: the project's Target column and
 detail header name the target, the target's detail lists the project under
 Projects, and each side navigates to the other pre-selected. The link is
-held by id, not by name text — renaming the project never detaches it.
+held by id, so renaming the project leaves it attached.

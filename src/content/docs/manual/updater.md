@@ -4,8 +4,7 @@ description: How PlateVault checks for, verifies, and installs updates.
 ---
 
 PlateVault checks for updates once, in the background, at application
-startup. The check never blocks the interface or repeats during the
-session. Its result appears in
+startup. The result appears in
 **Settings → Advanced → Software Update**, alongside the version you are
 running, as one of these states:
 

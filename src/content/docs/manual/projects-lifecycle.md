@@ -20,8 +20,7 @@ planetary/lunar). On create:
 
 - a toast names the project and its folder outcome;
 - the project's folder structure (`lights/`, `darks/`, `flats/`, …) is
-  created automatically inside your registered project-outputs root — never
-  anywhere else;
+  created automatically inside your registered project-outputs root;
 - you return to the projects list with the new project present.
 
 ![The project-creation wizard: name field and processing-tool profile choice](../../../assets/screenshots/project-create.svg)
@@ -30,13 +29,12 @@ A name that collides with an existing project (case-insensitively) is
 rejected at the name field on submit — no project and no folders are
 created. If a plain file already occupies a folder location, the project
 record is still created and you are told which folder could not be created;
-that plan step stays available for review instead of being dropped
-silently.
+that plan step stays available for review.
 
 ## Attaching sources
 
 From the project's edit view, add sources from a picker that offers only
-unlinked, already-confirmed sessions — unconfirmed Inbox data never appears.
+unlinked, already-confirmed sessions.
 Removing a source takes effect immediately, except the last remaining one,
 which is intercepted by an inline confirmation. A project in a locked
 lifecycle state (archived) refuses source edits with an explicit message.
@@ -51,8 +49,8 @@ visibly distinct from a real zero.
 ## Manifests and notes
 
 Every lifecycle-relevant change — creation, a source change, a completed
-cleanup or archive — appends a manifest snapshot to an append-only list; no
-manifest is ever overwritten or removed. Each manifest has a reveal action
+cleanup or archive — appends a manifest snapshot to an append-only list.
+Each manifest has a reveal action
 that opens its folder. Notes autosave a few seconds after typing stops,
 with a live byte counter against a hard size cap.
 
@@ -62,7 +60,7 @@ With a tool executable configured, **Open in {tool}** launches it against
 the project's working directory without changing the project's lifecycle
 state. A working directory that would resolve outside every registered
 library root refuses to launch, with a plain explanation; an OS-level spawn
-failure is reported, not swallowed. PlateVault prepares inputs and records
+failure is reported. PlateVault prepares inputs and records
 outputs — the processing itself happens entirely in your tool (see
 [Prepare inputs for PixInsight/WBPP](../../how-to/prepare-for-pixinsight/)).
 
@@ -72,16 +70,15 @@ While the project is open, files the tool writes into the project's output
 folder are recorded as artifacts with a kind (intermediate / master /
 final) and a confidence level. Files written while the project was closed
 are picked up on the next open. The watcher observes only the project's own
-output folder — never the whole library — and PlateVault never modifies or
-deletes an artifact file itself.
+output folder, and PlateVault never modifies or deletes an artifact file
+itself.
 
 ## Archiving a finished project
 
 Archiving follows the same plan discipline as every other mutation:
 
 1. On a **completed** project, choose **Archive**. PlateVault generates an
-   archive plan and opens its review in the same interaction — the
-   lifecycle never flips from the click alone.
+   archive plan and opens its review in the same interaction.
 2. Review the plan: every item shows source and destination (an app-managed,
    collision-free archive folder scoped to this plan). Items from a
    protected source are called out with a stated reason and must each be
@@ -97,8 +94,8 @@ Archiving follows the same plan discipline as every other mutation:
 
 Archived projects appear on the Archive page as rows with type, reason,
 size, and archived date — searchable by name, reason, or original path, and
-sortable on every column; missing values render as unresolved, never a
-fabricated `0`. Selecting a row shows the project's name, entity type,
+sortable on every column; missing values render as unresolved, per the
+[Inbox value-rendering rule](../inbox/#per-file-detail). Selecting a row shows the project's name, entity type,
 original path, and its dated audit history.
 
 ![The Archive page: archived entries with type, reason, size and date, and the Send-to-trash and Delete-permanently actions](../../../assets/screenshots/archive-page.svg)

@@ -37,8 +37,7 @@ will get — sub-frame counts and integration time per filter.
 
 For each attached session, review the ranked candidate masters on the
 Calibration page or from the project, and assign explicitly. Candidates
-show real context with confidence values and mismatch indicators; nothing
-is ever auto-assigned.
+show real context with confidence values and mismatch indicators.
 
 ![Ranked candidate masters for a session, each with context, a confidence value, and mismatch indicators](../../../assets/screenshots/calibration-matching.svg)
 
@@ -50,7 +49,7 @@ Details:
 Choose **Open in PixInsight** from the project. The tool launches against
 the project's working directory — the project's lifecycle state does not
 change, and a working directory outside every registered root refuses to
-launch rather than spawning somewhere unexpected.
+launch.
 
 From here, everything is PixInsight: run WBPP over the prepared inputs as
 you normally would.
@@ -60,8 +59,9 @@ you normally would.
 While the project is open, files WBPP writes into the project's output
 folder are recorded automatically as artifacts, each with a kind
 (intermediate / master / final) and a confidence level. Outputs written
-while the project was closed are picked up on the next open. PlateVault
-never modifies or deletes an artifact — it only observes.
+while the project was closed are picked up on the next open. PlateVault only
+observes
+([Artifact observation](../../manual/projects-lifecycle/#artifact-observation)).
 
 Those recorded intermediates are what the
 [cleanup flow](../plan-a-cleanup/) later offers to reclaim, once your

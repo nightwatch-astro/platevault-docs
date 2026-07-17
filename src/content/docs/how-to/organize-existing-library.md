@@ -61,4 +61,4 @@ Afterwards:
 
 If you have both organized roots and an inbox drop folder, the two routes
 coexist in the same session: each file routes to catalogue or move purely
-by its source root's organization state, never by frame type.
+by its source root's organization state.

@@ -17,8 +17,7 @@ reviewed and applied.
 queue items. A folder that mixes frame types (say, lights and darks
 together) splits into single-type items (`light · Ha · 300s`,
 `dark · 300s`, …), each still visibly grouped back to its shared source
-folder, rather than appearing as one ambiguous "mixed" item. The status-bar
-breakdown matches the queue's real contents.
+folder. The status-bar breakdown matches the queue's real contents.
 
 ## Per-file detail
 
@@ -60,8 +59,7 @@ never rewritten.
 When more than one registered library root can receive an item's frame
 type, the item's destination-root control lists them and defaults to
 **Auto**. With exactly one valid root, no picker is shown. If Auto cannot
-resolve a single root at confirm time, you are prompted to choose — nothing
-is confirmed to an ambiguous root silently.
+resolve a single root at confirm time, you are prompted to choose.
 
 ![An item's destination-root control listing multiple eligible library roots, with Auto selected](../../../assets/screenshots/inbox-destination-root.svg)
 

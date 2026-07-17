@@ -21,7 +21,7 @@ folder can yield several sessions when its frames split by gain, binning,
 or other settings.
 
 When FITS metadata carries no target name, the Target cell falls back to
-the session's own name rather than showing a blank.
+the session's own name.
 
 Re-running an Inbox scan of an already-confirmed source never duplicates a
 session and never changes the list.
@@ -47,8 +47,7 @@ Values follow the same real / unresolved / not-applicable rendering as the
 [Inbox detail](../inbox/#per-file-detail), with source badges
 (FITS / User / Inferred / Default) on real values only.
 
-Close the panel with the ✕ control or Escape — closing never mutates the
-session.
+Close the panel with the ✕ control or Escape.
 
 From the detail you can also:
 

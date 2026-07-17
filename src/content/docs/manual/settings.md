@@ -114,7 +114,7 @@ operation.
 
 ![The Audit Log: rows with timestamp, event, entity, applied/refused/failed outcome, and before-and-after values](../../../assets/screenshots/settings-audit-log.svg)
 
-The log records committed changes, not noise: rapidly typing in the Naming
+The log records committed changes: rapidly typing in the Naming
 pattern builder produces one row at the final value, not one per keystroke,
 and UI-state-only toggles produce none. Reads never write audit rows.
 Automatic background rescans are recorded at diagnostic severity, distinct
