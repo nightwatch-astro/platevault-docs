@@ -1,0 +1,60 @@
+name: Docs
+
+# Mirrors the trigger shape of prompting-press/prompting-press's docs.yml
+# (push to main + workflow_dispatch), plus a repository_dispatch trigger to
+# preserve prompting-press's release-driven property: there, a release
+# snapshots docs and merges to main, which push-triggers the build. Here the
+# docs site lives in its own repo with no code to snapshot, so the alm
+# release itself is expected to fire `repository_dispatch` with type
+# `platevault-released` (see README "Release-triggered deploys" for the
+# alm-side snippet this depends on — not yet wired up there).
+on:
+  push:
+    branches: [main]
+  repository_dispatch:
+    types: [platevault-released]
+  workflow_dispatch:
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build docs site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  # Same in-repo GitHub Actions Pages deploy the prompting-press.github.io
+  # side of the split topology uses (build_type=workflow): this repo owns
+  # its own Pages target directly, so no cross-repo deploy-key push is
+  # needed here.
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

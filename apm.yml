@@ -1,0 +1,8 @@
+name: platevault-docs
+version: 1.0.0
+description: APM project for PlateVault documentation site.
+author: Sjors Robroek
+dependencies:
+  apm:
+  - srobroek/agentic-packages/packages/write-docs#main
+  - srobroek/agentic-packages/packages/docs-architecture#main
