@@ -20,10 +20,10 @@ source folder.
 
 ## 2. Check the per-file detail
 
-Select an item to open its detail: frame type, filter, exposure, binning,
-gain, temperature, target, and date per file, each marked as a real value
-(with a source pill), an unresolved missing value (a chip), or
-not-applicable (a dash).
+Select an item and check the per-file metadata — frame type, filter,
+exposure, binning, gain, temperature, target, date. The
+[Inbox manual](../../manual/inbox/#per-file-detail) explains how real,
+missing, and not-applicable values are told apart.
 
 ## 3. Resolve anything flagged "needs review"
 
@@ -65,6 +65,5 @@ Open **Sessions**. The session row(s) for your new data are already there —
 no review step, frame counts matching what the plan moved. The apply is
 also recorded in **Settings → Audit Log**.
 
-That's the whole loop you will repeat for every night of data: rescan,
-resolve, confirm, review, apply. Details on every control:
+Every later night of data repeats this loop. Details on every control:
 [Inbox](../../manual/inbox/) and [Sessions](../../manual/sessions/).

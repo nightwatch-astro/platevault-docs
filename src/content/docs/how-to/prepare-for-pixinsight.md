@@ -3,12 +3,10 @@ title: Prepare inputs for PixInsight/WBPP
 description: Get a project's light frames, calibration, and processing tool ready — without PlateVault touching the actual processing.
 ---
 
-PlateVault's job ends where PixInsight's begins. It never calibrates,
-debayers, registers, integrates, drizzles, stacks, or edits an image — it
-gets everything *ready*: the right sessions attached to a project, the
-right masters matched, the tool launched against the right folder, and the
-outputs recorded when WBPP is done. This guide walks that preparation end
-to end.
+PlateVault's job ends where PixInsight's begins. Preparation means: the
+right sessions attached to a project, the right masters matched, the tool
+launched against the right folder, and the outputs recorded when WBPP is
+done.
 
 ## 1. Point PlateVault at the executable
 

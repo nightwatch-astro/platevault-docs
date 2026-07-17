@@ -3,11 +3,11 @@ title: Inbox
 description: Ingest, review, reclassify, and confirm files before they move.
 ---
 
-The Inbox is PlateVault's single ingest gate. Every file enters the library
-through it — whether the file will be moved into your library structure or
-catalogued exactly where it already sits. Nothing passes the gate without a
-classification you can inspect, and nothing touches disk without a plan you
-have reviewed and applied.
+The Inbox is PlateVault's single ingest gate: every file enters the library
+through it, whether it will be moved into your library structure or
+catalogued where it already sits. Passing the gate requires a
+classification you can inspect, and touching disk requires a plan you have
+reviewed and applied.
 
 ![Screenshot: Inbox confirm gate](../../../assets/screenshots/inbox.svg)
 
@@ -15,10 +15,10 @@ have reviewed and applied.
 
 **Rescan** picks up new folders under your inbox roots and lists them as
 queue items. A folder that mixes frame types (say, lights and darks
-together) never appears as one ambiguous "mixed" item — it splits into
-single-type items (`light · Ha · 300s`, `dark · 300s`, …), each still
-visibly grouped back to its shared source folder. The status-bar breakdown
-always matches the queue's real contents.
+together) splits into single-type items (`light · Ha · 300s`,
+`dark · 300s`, …), each still visibly grouped back to its shared source
+folder, rather than appearing as one ambiguous "mixed" item. The status-bar
+breakdown matches the queue's real contents.
 
 ## Per-file detail
 

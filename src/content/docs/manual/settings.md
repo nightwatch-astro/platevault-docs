@@ -120,11 +120,11 @@ separate, live in-session stream with severity chips
 useful for watching what is happening right now, while the Audit Log is the
 durable history.
 
-## Localization
+## Localization and accessibility
 
 Every user-facing string — including backend error codes and audit detail
 text — routes through the translation catalog; no raw technical key or
-untranslated error ever surfaces. Sortable tables announce their active
-sort column and direction via `aria-sort`, focus states are visible, and
-every page keeps its header and action bar pinned while only the content
+untranslated error surfaces. Sortable tables announce their active sort
+column and direction via `aria-sort`, focus states are visible, and every
+page keeps its header and action bar pinned while only the content
 scrolls, down to a 1100×720 window.

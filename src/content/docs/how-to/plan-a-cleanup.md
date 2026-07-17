@@ -11,22 +11,19 @@ protected file without an explicit, audited acknowledgement.
 
 ## What "protected" means
 
-Every data source carries a protection level. The default comes from the
-[setup wizard's Configuration step](../../manual/setup-wizard/#3-configuration)
-— **protected**, unless you changed it — and can be overridden per source
-in **Settings → Data Sources**. Protected files appear in cleanup scans as
-locked entries you cannot select, and any plan that includes one requires a
-per-item acknowledgement before it can be approved. Cleanup never deletes
-permanently — the destinations are the Archive folder or the OS trash, both
-recoverable.
+Protected files appear in cleanup scans as locked entries you cannot
+select, and any plan that includes one requires a per-item acknowledgement
+before it can be approved — see
+[Protected files](../../manual/cleanup-archive/#protected-files) for where
+the protection level comes from. Cleanup never deletes permanently: the
+destinations are the Archive folder or the OS trash, both recoverable.
 
 ## Cleaning a project's outputs
 
 1. Open the project's **Outputs/Cleanup** section and click **Scan for
    cleanup candidates**. The read-only preview groups candidates by kind
-   (Intermediates / Masters / Finals) with per-item size and confidence,
-   shows protected items locked, and totals the reclaimable size. Nothing
-   on disk changes from scanning.
+   with size, confidence, and a reclaimable total; nothing on disk changes
+   from scanning.
 2. Pick the destination: **Archive folder** (default) or **System trash**.
    The choice is fixed once the plan is generated.
 3. Click **Generate cleanup plan**. The review overlay lists every item

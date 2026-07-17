@@ -93,9 +93,9 @@ Archiving follows the same plan discipline as every other mutation:
 
 Archived projects appear on the Archive page as rows with type, reason,
 size, and archived date — searchable by name, reason, or original path, and
-sortable on every column. Missing values render as a distinct unresolved
-state, never a fabricated `0`. Selecting a row shows the project's name,
-entity type, original path, and its dated audit history.
+sortable on every column; missing values render as unresolved, never a
+fabricated `0`. Selecting a row shows the project's name, entity type,
+original path, and its dated audit history.
 
 Two removal actions follow, in increasing severity:
 

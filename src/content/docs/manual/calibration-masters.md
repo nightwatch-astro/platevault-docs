@@ -32,8 +32,8 @@ registers each master into the calibration store as its own item.
 One row per master file. Fingerprint columns (gain, temperature, binning,
 filter) are kind-conditional: a column that does not apply to a kind — a
 bias has no meaningful exposure — renders an explicit not-applicable
-marker. A missing value renders as an unresolved state, never a fabricated
-`Gain 0` or `0 KB`; a real zero renders as `0` with its source pill.
+marker. Missing values render as unresolved, never a fabricated `Gain 0`
+or `0 KB`; a real zero renders as `0` with its source pill.
 
 Sort headers, search, and group-by work as on other list pages, and a kind
 filter appears once a second kind exists.
@@ -53,16 +53,15 @@ reveal control, which opens the master's own folder.
 
 Select an unassigned master from a project or from the Calibration page's
 matching view. Ranked candidate sessions appear **before** any assignment,
-each with real context — target, filter, night, frame count — a confidence
+each with its context (target, filter, night, frame count), a confidence
 value, and mismatch indicators. A session that fails a hard rule (wrong
 gain, for instance) is shown with its mismatch flagged, never silently
-hidden. Absent context renders as unresolved, not as a made-up "1x1"
-binning or empty camera name.
+hidden; absent context renders as unresolved.
 
-Assignment is always explicit: confirming records it, updates the Used-by
-list, and answers back; the assignment is also visible from the session and
-project side. Cancelling fires no backend call. Matching never auto-applies
-an assignment.
+Assignment is always explicit — matching never auto-applies one.
+Confirming records it, updates the Used-by list, and answers back; the
+assignment is also visible from the session and project side. Cancelling
+fires no backend call.
 
 ## Replacing a mis-assigned master
 

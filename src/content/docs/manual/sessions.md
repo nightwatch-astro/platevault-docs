@@ -43,9 +43,9 @@ frames live on the [Calibration page](../calibration-masters/).
 Selecting a row opens a detail panel with the session's attributes: target,
 filter, frame count, exposure, total integration time (when derivable),
 night, camera, gain, binning, sensor temperature, and who confirmed it.
-Each value carries a source badge (FITS / User / Inferred / Default) only
-when a real value is present; an applicable-but-missing value renders a
-distinct unresolved chip, and a not-applicable field renders a plain dash.
+Values follow the same real / unresolved / not-applicable rendering as the
+[Inbox detail](../inbox/#per-file-detail), with source badges
+(FITS / User / Inferred / Default) on real values only.
 
 Close the panel with the ✕ control or Escape — closing never mutates the
 session.

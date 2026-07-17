@@ -3,9 +3,8 @@ title: Roadmap
 description: Features on PlateVault's roadmap, grouped by area.
 ---
 
-This page lists features on PlateVault's roadmap. The Manual and How-to
-pages describe the shipped product; this page describes what comes next —
-no dates, no ordering guarantees.
+The Manual and How-to pages describe the shipped product; this page
+describes what comes next, with no dates and no ordering promises.
 
 ## Inbox
 
