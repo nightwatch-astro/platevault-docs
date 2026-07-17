@@ -72,12 +72,11 @@ never render a plausible-looking number that was not actually computed.
 ## Starting a project from a target
 
 A target's detail offers **+ New project here**, which opens the
-[project-creation wizard](../projects-lifecycle/#creating-a-project) so you
-can go from "I want to shoot this next" to a tracked project without
-leaving the planner.
+[project-creation wizard](../projects-lifecycle/#creating-a-project) with
+the target carried along — from "I want to shoot this next" to a tracked
+project without retyping the target's name.
 
-<!-- Writer note: the persisted target<->project link (project shows its
-target, target lists its projects, rename-safe by id) is specified in
-journey J14 but tracked as open issue #612 (not release-blocker-labelled at
-time of writing). Documented only the wizard entry point; extend this
-section once #612 lands. -->
+The link is persistent and bidirectional: the project's Target column and
+detail header name the target, the target's detail lists the project under
+Projects, and each side navigates to the other pre-selected. The link is
+held by id, not by name text — renaming the project never detaches it.

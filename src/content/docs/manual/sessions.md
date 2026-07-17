@@ -46,14 +46,16 @@ night, camera, gain, binning, sensor temperature, and who confirmed it.
 Each value carries a source badge (FITS / User / Inferred / Default) only
 when a real value is present; an applicable-but-missing value renders a
 distinct unresolved chip, and a not-applicable field renders a plain dash.
-Closing the panel never mutates the session.
+
+Close the panel with the ✕ control or Escape — closing never mutates the
+session.
 
 From the detail you can also:
 
-- **Open a linked project** — a project chip navigates to the
-  [Projects page](../projects-lifecycle/).
+- **Open a linked project** — a project chip opens that project on the
+  [Projects page](../projects-lifecycle/), pre-selected.
 - **Show in File Explorer** (label follows your OS) — opens the OS file
-  manager at the session's source root. The action is offered only when a
+  manager at the session's own folder. The action is offered only when a
   source path resolves; a failed reveal shows an error toast and leaves the
   panel open.
 

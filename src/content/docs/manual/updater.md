@@ -6,10 +6,12 @@ description: How PlateVault checks for, verifies, and installs updates.
 PlateVault checks for updates once, in the background, at application
 startup. The check never blocks the interface, never repeats during the
 session, and never interrupts library work. Its result appears in
-**Settings → Advanced → Software Update** as one of two states:
+**Settings → Advanced → Software Update**, alongside the version you are
+running, as one of these states:
 
 - "You're running the latest version."
 - "Update available: version {version}"
+- a failed check, reported as a failure — never disguised as "up to date"
 
 ![Screenshot: Settings → Advanced update available](../../../assets/screenshots/updater.svg)
 
@@ -44,3 +46,8 @@ Install action stays available to retry.
 No failure branch crashes the app or leaves a partial install: the
 version you were running remains fully usable and unchanged, and the next
 launch's background check runs normally regardless of the prior failure.
+
+:::note[Roadmap]
+A staged update flow — download and verify immediately, restart and
+install when you choose. See the [Roadmap](../../reference/roadmap/).
+:::

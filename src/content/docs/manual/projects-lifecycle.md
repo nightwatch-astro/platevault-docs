@@ -101,17 +101,18 @@ Two removal actions follow, in increasing severity:
 
 - **Send to trash** — moves the archived files to the OS trash, where your
   operating system's normal recovery applies. The action is audited.
-- **Delete permanently** — requires typing the literal word `DELETE`
-  (exact, case-sensitive) before the confirm control enables; the backend
+- **Delete permanently** — removes the archived files from disk with no
+  trash recovery. It requires typing the literal word `DELETE` (exact,
+  case-sensitive) before the confirm control enables; the backend
   independently rejects a mismatch. When **Block permanent delete** is
   enabled in Cleanup/Protection settings, the deletion is refused
   server-side and no file is removed. Cancel leaves every file untouched.
 
-<!-- Writer note: filesystem execution of Send-to-trash / Delete-permanently
-is tracked as open issue #732 (audit-only stubs; not release-blocker-labelled
-at time of writing). The confirm gates, audit rows, and block-permanent-delete
-refusal above are verified; the file relocation/removal is documented at
-intended-semantics level. -->
-
 Each archived entry also carries the platform-native reveal control ("Show
-in File Explorer" on Windows).
+in File Explorer" on Windows), which opens the archived files' folder.
+
+:::note[Roadmap]
+Restore plans — a reviewable plan generated from an archive entry that
+moves the archived files back into the library. See the
+[Roadmap](../../reference/roadmap/).
+:::
