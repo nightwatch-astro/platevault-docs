@@ -17,38 +17,42 @@ export default defineConfig({
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/nightwatch-astro/alm' },
 			],
+			// reference/screenshots-todo is an internal capture spec: routable, but
+			// deliberately left out of the public sidebar.
 			sidebar: [
+				{
+					label: 'Get started',
+					items: [
+						{ label: 'Install PlateVault', slug: 'how-to/install' },
+						{ label: 'Your first session', slug: 'how-to/ingest-first-session' },
+					],
+				},
 				{
 					label: 'Manual',
 					items: [
 						{ label: 'Setup wizard & library roots', slug: 'manual/setup-wizard' },
 						{ label: 'Inbox', slug: 'manual/inbox' },
 						{ label: 'Sessions', slug: 'manual/sessions' },
+						{ label: 'Calibration & masters', slug: 'manual/calibration-masters' },
 						{ label: 'Targets & planning', slug: 'manual/targets-planning' },
 						{ label: 'Projects & lifecycle', slug: 'manual/projects-lifecycle' },
-						{ label: 'Calibration & masters', slug: 'manual/calibration-masters' },
 						{ label: 'Cleanup & archive plans', slug: 'manual/cleanup-archive' },
 						{ label: 'Settings', slug: 'manual/settings' },
 						{ label: 'Updater', slug: 'manual/updater' },
 					],
 				},
 				{
-					label: 'How-to',
+					label: 'Guides',
 					items: [
-						{ label: 'Install PlateVault', slug: 'how-to/install' },
-						{ label: 'Ingest your first session', slug: 'how-to/ingest-first-session' },
-						{ label: 'Organize an existing messy library', slug: 'how-to/organize-existing-library' },
-						{ label: 'Prepare inputs for PixInsight/WBPP', slug: 'how-to/prepare-for-pixinsight' },
+						{ label: 'Organize an existing library', slug: 'how-to/organize-existing-library' },
+						{ label: 'Prepare for PixInsight/WBPP', slug: 'how-to/prepare-for-pixinsight' },
 						{ label: 'Plan a cleanup safely', slug: 'how-to/plan-a-cleanup' },
 						{ label: 'Recover after moving a drive', slug: 'how-to/recover-after-moving-a-drive' },
 					],
 				},
 				{
 					label: 'Reference',
-					items: [
-						{ label: 'Roadmap', slug: 'reference/roadmap' },
-						{ label: 'Screenshots TODO', slug: 'reference/screenshots-todo' },
-					],
+					items: [{ label: 'Roadmap', slug: 'reference/roadmap' }],
 				},
 			],
 		}),
