@@ -3,12 +3,78 @@ title: Calibration & masters
 description: Ingest calibration master frames and match them to sessions.
 ---
 
-<!-- WRITER TODO: Document ingesting masters through the Inbox, the
-Calibration page/master detail, ranked candidate sessions, explicit
-assignment, tolerance tuning, and replacing a mis-assigned master.
-Ground truth:
-- docs/journeys/J08-calibration-ingest-masters-matching/journey.md (S1-S8)
-- docs/journeys/J11-mistake-recovery/journey.md (S6, replace mis-assigned master)
-- Cross-link candidates: manual/inbox.md -->
+PlateVault tracks calibration master frames — darks, flats, and bias — as
+individually identified items and matches them against the acquisition
+sessions that need calibration. It never builds a master itself; masters
+come from your processing tool and enter the library through the
+[Inbox](../inbox/) like everything else.
 
 ![Screenshot: calibration master detail and candidate sessions](../../../assets/screenshots/calibration-masters.svg)
+
+## Ingesting masters
+
+Point a calibration root at your master files and ingest through the normal
+Inbox pipeline. A file classifies as a master when:
+
+- an authoritative stack/combine count in its metadata (Siril `STACKCNT` /
+  `NCOMBINE`) is greater than 1, or
+- no such count is present, and its filename, path, or `IMAGETYP` carries a
+  master naming convention ("master", "_stacked").
+
+A present stack count is decisive and overrides naming: a file named
+`dark_master_stacked.fit` whose count is 1 is not a master. A folder of
+masters never collapses into one aggregate item, and a raw single frame
+with an ordinary name never appears as a master. Confirming and applying
+registers each master into the calibration store as its own item.
+
+## The Calibration page
+
+One row per master file. Fingerprint columns (gain, temperature, binning,
+filter) are kind-conditional: a column that does not apply to a kind — a
+bias has no meaningful exposure — renders an explicit not-applicable
+marker. A missing value renders as an unresolved state, never a fabricated
+`Gain 0` or `0 KB`; a real zero renders as `0` with its source pill.
+
+Sort headers, search, and group-by work as on other list pages, and a kind
+filter appears once a second kind exists.
+
+Master *light* frames never appear here, and only dark/flat/bias kinds
+surface — `dark_flat` and `bad_pixel_map` are out of scope by design.
+
+## Master detail
+
+A master's detail panel leads with information the row does not already
+show: full metadata, provenance, age/created date, history, and a **Used
+by** list of the sessions it is assigned to, each navigable. Actions
+include **Use in project**, **Replace master**, and the platform-native
+reveal control, which opens the master's own folder.
+
+## Matching masters to sessions
+
+Select an unassigned master from a project or from the Calibration page's
+matching view. Ranked candidate sessions appear **before** any assignment,
+each with real context — target, filter, night, frame count — a confidence
+value, and mismatch indicators. A session that fails a hard rule (wrong
+gain, for instance) is shown with its mismatch flagged, never silently
+hidden. Absent context renders as unresolved, not as a made-up "1x1"
+binning or empty camera name.
+
+Assignment is always explicit: confirming records it, updates the Used-by
+list, and answers back; the assignment is also visible from the session and
+project side. Cancelling fires no backend call. Matching never auto-applies
+an assignment.
+
+## Replacing a mis-assigned master
+
+Assign the correct master to the session from the correct master's detail —
+forcing past a hard-rule mismatch if you know better than the rule. The
+previous assignment for that (session, calibration type) pair is replaced,
+not duplicated; both masters' Used-by lists update; the new assignment is
+audited. No file is touched — only the assignment link changes.
+
+## Tuning matching tolerances
+
+**Settings → Calibration Matching** exposes the matching rules: toggle a
+hard "match required" requirement (camera, binning, gain, offset) or adjust
+a soft tolerance (sensor temperature, dark/bias age). Changes persist
+durably and still hold after an app restart.

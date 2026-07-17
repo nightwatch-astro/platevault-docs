@@ -3,11 +3,44 @@ title: Updater
 description: How PlateVault checks for, verifies, and installs updates.
 ---
 
-<!-- WRITER TODO: Document the background update check, signature-verified
-install flow, and recovery from a failed check/install (every failure branch
-leaves the running install untouched).
-Ground truth:
-- docs/journeys/J17-software-update-install/journey.md (S1-S4)
-- Cross-link candidates: manual/settings.md (Settings → Advanced) -->
+PlateVault checks for updates once, in the background, at application
+startup. The check never blocks the interface, never repeats during the
+session, and never interrupts library work. Its result appears in
+**Settings → Advanced → Software Update** as one of two states:
+
+- "You're running the latest version."
+- "Update available: version {version}"
 
 ![Screenshot: Settings → Advanced update available](../../../assets/screenshots/updater.svg)
+
+## Installing an update
+
+**Install & Restart** is a single, explicitly user-initiated action —
+nothing is ever downloaded, staged, or installed as a side effect of the
+passive startup check. The action:
+
+1. re-runs the update check live;
+2. downloads the release artifact from GitHub Releases;
+3. verifies the artifact's cryptographic signature against the public key
+   embedded in the application;
+4. only after verification succeeds, installs the update and relaunches
+   into the new version.
+
+An artifact whose signature does not verify is never installed and never
+triggers a relaunch — the running version keeps executing unchanged, with
+no partial install left on disk.
+
+After a successful install-and-relaunch, Settings → Advanced reads "You're
+running the latest version" again, and no prompt reappears for that
+release.
+
+## When something fails
+
+Every failure branch — unreachable update feed, failed download, failed
+signature verification — is reported inline in the Software Update section
+as "Update failed: {message}", carrying the specific underlying error. The
+Install action stays available to retry.
+
+No failure branch crashes the app or leaves a partial install: the
+version you were running remains fully usable and unchanged, and the next
+launch's background check runs normally regardless of the prior failure.
