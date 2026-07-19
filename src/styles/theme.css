@@ -12,9 +12,11 @@
  * GitHub Pages needs no external font requests.
  */
 
-/* ---- Fonts -------------------------------------------------------------- */
+/* ---- Fonts --------------------------------------------------------------
+ * --pv-font-display now comes from foundation.css (handoff 04, loaded
+ * before this file via astro.config.mjs customCss) — same value, single
+ * source of truth shared with the app. */
 :root {
-	--pv-font-display: 'Space Grotesk Variable', 'Inter Variable', system-ui, sans-serif;
 	--sl-font: 'Inter Variable', system-ui, -apple-system, BlinkMacSystemFont,
 		'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 	/* Glow-only narrowband hues — never used as text (fails contrast by design). */
@@ -163,7 +165,7 @@ header.header {
 	-webkit-backdrop-filter: blur(12px) saturate(1.4);
 	backdrop-filter: blur(12px) saturate(1.4);
 	border-bottom: 1px solid transparent;
-	transition: border-color 0.25s ease, box-shadow 0.25s ease;
+	transition: border-color var(--pv-transition-slow), box-shadow var(--pv-transition-slow);
 }
 
 :root[data-scrolled] header.header {

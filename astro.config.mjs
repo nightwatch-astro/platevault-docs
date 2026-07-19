@@ -16,6 +16,7 @@ export default defineConfig({
 			customCss: [
 				'@fontsource-variable/inter/index.css',
 				'@fontsource-variable/space-grotesk/index.css',
+				'./src/styles/foundation.css',
 				'./src/styles/theme.css',
 				'./src/styles/landing.css',
 			],
